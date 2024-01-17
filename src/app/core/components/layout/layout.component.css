@@ -9,4 +9,6 @@
 
 .wrapper-desktop-sidebar {
   width: 300px;
+  background: white;
+  min-height: 100%;
 }
