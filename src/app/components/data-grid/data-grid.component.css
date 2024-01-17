@@ -2,3 +2,14 @@
   border-bottom: 1px solid #d7e0f1;
 }
 
+button.edit {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  color: blue;
+}
+
+div.del {
+  width: 50px;
+}
