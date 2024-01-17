@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-icon-button',
@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrl: './icon-button.component.css'
 })
 export class IconButtonComponent {
+
+  @Input() iconClass: string = '';
+
+  @Input() iconColor: string = '';
+
+  @Output() click = new EventEmitter();
+
+  onClickButton() {
+    this.click.emit();
+  }
 
 }
