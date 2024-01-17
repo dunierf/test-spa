@@ -1,7 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 // Components
 import { CardComponent } from '../card/card.component';
+
+// Environment
+import { environment } from '../../../environments/environment';
+
 
 @Component({
   selector: 'app-data-grid',
@@ -22,12 +26,16 @@ export class DataGridComponent {
 
   @Input() allowEdit: boolean = true;
 
+  @Output() onDelete: EventEmitter<number> = new EventEmitter<number>();
+
+  @Output() onEdit: EventEmitter<number> = new EventEmitter<number>();
+
   delete(id: number) {
-    console.log('Remove entry by id');
+    this.onDelete.emit(id);
   }
 
   edit(id: number) {
-    console.log('Edit entry by id');
+    this.onEdit.emit(id);
   }
 
 }
