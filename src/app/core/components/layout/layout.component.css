@@ -1,0 +1,12 @@
+.wrapper {
+  min-height: 100%;
+  width: 100%;
+}
+
+.wrapper-margin-top {
+  margin-top: 60px;
+}
+
+.wrapper-desktop-sidebar {
+  width: 300px;
+}
