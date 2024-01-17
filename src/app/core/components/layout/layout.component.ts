@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class LayoutComponent {
 
+  showSideBar: boolean = false;
+
+  showSidebarMenu() {
+    this.showSideBar = true;
+  }
+
+  onRouterOutletActive() {
+    this.showSideBar = false;
+  }
+
 }
