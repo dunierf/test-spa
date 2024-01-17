@@ -25,4 +25,16 @@ export class AuthService {
     const url = environment.apiUrl + 'auth/logout';
     return this.http.delete(url);
   }
+
+  saveToken(token: string) {
+    sessionStorage.setItem('token', token);
+  }
+
+  removeToken(token: string) {
+    sessionStorage.removeItem('token');
+  }
+
+  getToken() : string | null {
+    return sessionStorage.getItem('token');
+  }
 }
