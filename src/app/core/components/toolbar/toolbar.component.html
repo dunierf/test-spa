@@ -1,10 +1,14 @@
-<div class="w-100 position-fixed d-flex flex-column justify-content-center app-toolbar">
-  <div class="d-flex flex-row ms-4 me-4">
-      <div class="flex-grow-1">
-          <!--<span>title</span>-->
+<div class="d-flex align-items-center w-100 toolbar">
+  <div class="d-flex ms-4 me-4 w-100">
+      <div class="flex-fill">
+          <span *ngIf="title">
+              {{ title }}
+          </span>
       </div>
-      <div class="d-flex d-lg-none">
-          <app-icon-button [iconClass]="'bi-list'" [iconColor]="'white'" (click)="onClickMenuButton()"></app-icon-button>
+      <div class="d-lg-none">
+          <button class="navbar-toggler" (click)="showMenu()">
+              <span class="bi-list"></span>
+          </button>
       </div>
   </div>
 </div>
