@@ -14,6 +14,11 @@ import { MenuComponent } from './components/menu/menu/menu.component';
 import { ItemsMenuComponent } from './components/menu/items-menu/items-menu.component';
 import { SlidingSidebarComponent } from './components/sidebars/sliding-sidebar/sliding-sidebar.component';
 
+// Services
+import { UserService } from './services/user/user.service';
+import { RoleService } from './services/role/role.service';
+import { ProductService } from './services/product/product.service';
+
 
 
 @NgModule({
@@ -33,7 +38,14 @@ import { SlidingSidebarComponent } from './components/sidebars/sliding-sidebar/s
     CommonModule,
     RouterModule
   ],
-  exports: [LayoutComponent]
+  exports: [
+    LayoutComponent
+  ],
+  providers: [
+    RoleService,
+    UserService,
+    ProductService
+  ]
 })
 export class CoreModule {
 
