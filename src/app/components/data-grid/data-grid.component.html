@@ -15,8 +15,8 @@
   </div>
 
   <!-- Data -->
-  @for (item of items; track item; let row = $index) {
-    <div class="d-flex flex-column flex-md-row mt-3 pb-3 data-row">
+  @for (item of items; track item; let row = $index; let last = $last) {
+    <div class="d-flex flex-column flex-md-row mt-3 pb-3" [class]="{ 'data-row': !last }">
       @for (column of columns; track column; let first = $first) {
         <div class="d-flex flex-row mt-1 mt-md-0" [class]="{ 'flex-grow-1': first }">
           <div class="d-md-none me-2" [class]="{ 'd-none': first }">
@@ -36,7 +36,7 @@
 
       @if(allowDelete) {
         <div class="del mt-1 mt-md-0">
-          <button class="edit ms-0 ms-md-4" title="Delete this entry">
+          <button class="edit ms-0 ms-md-4" title="Delete this entry" (click)="delete(item.id)">
             <span class="bi-trash">
 
             </span>
