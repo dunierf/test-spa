@@ -1,0 +1,11 @@
+:host {
+  width: 100%;
+  background: #fff;
+  color: #a0acb9;
+}
+
+.logo {
+  background: #303f9f;
+  height: 60px !important;
+  color: white;
+}

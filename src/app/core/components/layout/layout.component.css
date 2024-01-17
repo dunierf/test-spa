@@ -1,14 +1,15 @@
-.wrapper {
-  min-height: 100%;
-  width: 100%;
+.main {
+  background: #edf0f5;
 }
 
-.wrapper-margin-top {
-  margin-top: 60px;
+@media (min-width: 992px) {
+  .sidebar {
+      min-width: 260px;
+  }
 }
 
-.wrapper-desktop-sidebar {
-  width: 300px;
-  background: white;
-  min-height: 100%;
+@media (min-width: 1200px) {
+  .sidebar {
+      min-width: 300px;
+  }
 }

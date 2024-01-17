@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-toolbar',
@@ -7,10 +7,11 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class ToolbarComponent {
 
-  @Output() showSidebar = new EventEmitter();
+  @Input() title: string | undefined = undefined;
+  @Output() showSidebarMenu = new EventEmitter();
 
-  onClickMenuButton() {
-    this.showSidebar.emit();
+  showMenu() {
+    this.showSidebarMenu.emit();
   }
 
 }
