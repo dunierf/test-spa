@@ -12,7 +12,7 @@ import { CardComponent } from '../card/card.component';
 })
 export class DataGridComponent {
 
-  @Input() title: string | undefined = undefined;
+  @Input() collection: string = "";
 
   @Input() items: any | undefined = undefined;
 
@@ -21,5 +21,13 @@ export class DataGridComponent {
   @Input() allowDelete: boolean = true;
 
   @Input() allowEdit: boolean = true;
+
+  delete(id: number) {
+    console.log('Remove entry by id');
+  }
+
+  edit(id: number) {
+    console.log('Edit entry by id');
+  }
 
 }

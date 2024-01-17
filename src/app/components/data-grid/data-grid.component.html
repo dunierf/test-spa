@@ -1,7 +1,48 @@
-<app-card [title]="title">
-  @for (item of items; track $index) {
-    <div class="d-flex mt-3 pb-2 data-row">
-      row
+<app-card [title]="collection">
+  <!-- Columns -->
+  <div class="d-flex d-none d-md-flex mb-4">
+    @for (column of columns; track column; let first = $first) {
+      <div [class]="{ 'flex-grow-1': first }">
+        {{ column }}
+      </div>
+    }
+
+    @if(allowDelete) {
+      <div class="del">
+
+      </div>
+    }
+  </div>
+
+  <!-- Data -->
+  @for (item of items; track item; let row = $index) {
+    <div class="d-flex flex-column flex-md-row mt-3 pb-3 data-row">
+      @for (column of columns; track column; let first = $first) {
+        <div class="d-flex flex-row mt-1 mt-md-0" [class]="{ 'flex-grow-1': first }">
+          <div class="d-md-none me-2" [class]="{ 'd-none': first }">
+            {{ column }}:
+          </div>
+          <div>
+            @if (first && allowEdit) {
+              <button class="edit" title="Edit this entry">
+                {{ item[column] }}
+              </button>
+            } @else {
+              {{ item[column] }}
+            }
+          </div>
+        </div>
+      }
+
+      @if(allowDelete) {
+        <div class="del mt-1 mt-md-0">
+          <button class="edit ms-0 ms-md-4" title="Delete this entry">
+            <span class="bi-trash">
+
+            </span>
+          </button>
+        </div>
+      }
     </div>
   }
 </app-card>
