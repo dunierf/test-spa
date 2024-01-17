@@ -19,6 +19,7 @@ import { SlidingSidebarComponent } from './components/sidebars/sliding-sidebar/s
 import { UserService } from './services/user/user.service';
 import { RoleService } from './services/role/role.service';
 import { ProductService } from './services/product/product.service';
+import { AuthService } from './services/auth/auth.service';
 
 
 
@@ -46,7 +47,8 @@ import { ProductService } from './services/product/product.service';
   providers: [
     RoleService,
     UserService,
-    ProductService
+    ProductService,
+    AuthService
   ]
 })
 export class CoreModule {
