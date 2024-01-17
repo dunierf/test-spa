@@ -1,6 +1,7 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 // Components
 import { LayoutComponent } from './components/layout/layout.component';
@@ -39,7 +40,8 @@ import { ProductService } from './services/product/product.service';
     RouterModule
   ],
   exports: [
-    LayoutComponent
+    LayoutComponent,
+    HttpClientModule
   ],
   providers: [
     RoleService,
