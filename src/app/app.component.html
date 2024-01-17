@@ -1,1 +1,5 @@
-<app-layout></app-layout>
+@if (authed == true) {
+  <app-layout></app-layout>
+} @else {
+  <app-login-page></app-login-page>
+}

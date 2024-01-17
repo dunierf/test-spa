@@ -1,15 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { CoreModule } from './core/core.module';
 
+// Services
+import { AuthService } from './core/services/auth/auth.service';
+
+// Components
+import { LoginPageComponent } from './pages/login-page/login-page.component';
+
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, CoreModule],
+  imports: [CommonModule, RouterOutlet, CoreModule, LoginPageComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'spa';
+
+  authed: boolean = false;
+
+  constructor(private authService: AuthService) {
+
+  }
+
 }
