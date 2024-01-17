@@ -4,10 +4,9 @@
           <app-sidebar></app-sidebar>
       </div>
       <div class="col position-relative min-vh-100 main">
-          <app-toolbar></app-toolbar>
-          <app-content></app-content>
-          <!--<app-toolbar [title]="title" (showSidebarMenu)="showSidebarMenu()"></app-toolbar>
-          <app-content (onRouterOutletActive)="onRouterOutletActive($event)"></app-content>-->
+          <app-toolbar (showSidebarMenu)="showSidebarMenu()"></app-toolbar>
+          <app-content (onRouterOutletActive)="onRouterOutletActive()"></app-content>
       </div>
   </div>
 </div>
+<app-sliding-sidebar [(showSideBar)]="showSideBar"></app-sliding-sidebar>
