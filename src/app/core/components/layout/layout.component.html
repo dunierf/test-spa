@@ -1,14 +1,8 @@
-<!--
-
-  <app-mobile-tablet-sidebar [(showSideBar)]="showSidebar"></app-mobile-tablet-sidebar>
-<app-desktop-logo-area></app-desktop-logo-area>
-<app-toolbar (showSidebar)="showMobileTabletSidebar()"></app-toolbar>
--->
 <app-toolbar></app-toolbar>
 <div class="d-flex wrapper">
   <div class="d-none d-lg-flex">
       <div class="wrapper-margin-top wrapper-desktop-sidebar">
-          sidebar
+          <app-sidebar></app-sidebar>
       </div>
   </div>
   <div class="flex-grow-1 d-flex w-100">
