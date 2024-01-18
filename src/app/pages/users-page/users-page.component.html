@@ -1,1 +1,1 @@
-<app-data-grid [items]="items" [collection]="'users'" [columns]="['name', 'email']"></app-data-grid>
+<app-data-grid [items]="items" [collection]="'users'" [columns]="['name', 'email']" (onDelete)="delete($event)" (onEdit)="edit($event)"></app-data-grid>
