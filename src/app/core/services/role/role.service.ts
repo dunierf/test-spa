@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 
 // Model
-import { User } from './../../models/user/user.model';
+import { Role } from '../../models/user/role.model';
 
 
 @Injectable()
@@ -16,13 +16,13 @@ export class RoleService {
 
   }
 
-  getAll() : Observable<{ data: User []}> {
+  getAll() : Observable<{ data: Role []}> {
     const url = environment.apiUrl + 'roles';
-    return this.http.get<{ data: User []}>(url);
+    return this.http.get<{ data: Role []}>(url);
   }
 
-  getById(id: number) : Observable<User> {
+  getById(id: number) : Observable<Role> {
     const url = environment.apiUrl + 'roles/' + id.toString();
-    return this.http.get<User>(url);
+    return this.http.get<Role>(url);
   }
 }
