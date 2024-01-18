@@ -36,4 +36,8 @@ export class AuthService {
   getToken() : string | null {
     return sessionStorage.getItem('token');
   }
+
+  isAuthed() : boolean {
+    return (this.getToken() != null);
+  }
 }

@@ -25,7 +25,7 @@ export class AppComponent {
   }
 
   isAuthed() : boolean {
-    return (this.authService.getToken() != null);
+    return this.authService.isAuthed();
   }
 
 }
