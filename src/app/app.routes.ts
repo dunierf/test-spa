@@ -14,6 +14,11 @@ export const routes: Routes = [
     title: 'Users'
   },
   {
+    path: 'user/:id',
+    component: UserPageComponent,
+    title: 'User'
+  },
+  {
     path: 'user',
     component: UserPageComponent,
     title: 'User'
@@ -22,6 +27,11 @@ export const routes: Routes = [
     path: 'products',
     component: ProductsPageComponent,
     title: 'Products'
+  },
+  {
+    path: 'product/:id',
+    component: ProductPageComponent,
+    title: 'Product'
   },
   {
     path: 'product',
