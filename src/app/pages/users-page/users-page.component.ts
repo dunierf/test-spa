@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 // Models
 import { User } from './../../core/models/user/user.model';
@@ -8,6 +9,7 @@ import { UserService } from './../../core/services/user/user.service';
 
 // Components
 import { DataGridComponent } from '../../components/data-grid/data-grid.component';
+
 
 @Component({
   selector: 'app-users-page',
@@ -20,7 +22,7 @@ export class UsersPageComponent implements OnInit {
 
   items: User[] = [];
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private router: Router) {
 
   }
 
@@ -48,7 +50,7 @@ export class UsersPageComponent implements OnInit {
   }
 
   edit(id: number) {
-    //
+    this.router.navigate(['user', id.toString()]);
   }
 
 }
