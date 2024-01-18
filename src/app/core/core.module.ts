@@ -1,7 +1,7 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptors} from '@angular/common/http';
 
 // Components
 import { LayoutComponent } from './components/layout/layout.component';
@@ -20,7 +20,7 @@ import { UserService } from './services/user/user.service';
 import { RoleService } from './services/role/role.service';
 import { ProductService } from './services/product/product.service';
 import { AuthService } from './services/auth/auth.service';
-
+import { authInterceptor } from './interceptors/auth.interceptor';
 
 
 @NgModule({
@@ -41,14 +41,14 @@ import { AuthService } from './services/auth/auth.service';
     RouterModule
   ],
   exports: [
-    LayoutComponent,
-    HttpClientModule
+    LayoutComponent
   ],
   providers: [
     RoleService,
     UserService,
     ProductService,
-    AuthService
+    AuthService,
+    provideHttpClient(withInterceptors([authInterceptor])), //([authInterceptor])
   ]
 })
 export class CoreModule {
