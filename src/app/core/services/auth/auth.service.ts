@@ -8,7 +8,6 @@ import { environment } from '../../../../environments/environment';
 // Model
 import { User } from './../../models/user/user.model';
 
-
 @Injectable()
 export class AuthService {
 

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { CoreModule } from './core/core.module';
+
 
 // Services
 import { AuthService } from './core/services/auth/auth.service';
@@ -19,10 +20,12 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 export class AppComponent {
   title = 'spa';
 
-  authed: boolean = false;
+  constructor(public authService: AuthService) {
 
-  constructor(private authService: AuthService) {
+  }
 
+  isAuthed() : boolean {
+    return (this.authService.getToken() != null);
   }
 
 }
