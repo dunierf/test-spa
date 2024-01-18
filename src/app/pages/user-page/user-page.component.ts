@@ -7,11 +7,15 @@ import { User } from './../../core/models/user/user.model';
 // Services
 import { UserService } from './../../core/services/user/user.service';
 
+// Components
+import { CardComponent } from '../../components/card/card.component';
+import { UserFormComponent } from '../../components/forms/user-form/user-form.component';
+
 
 @Component({
   selector: 'app-user-page',
   standalone: true,
-  imports: [],
+  imports: [CardComponent, UserFormComponent],
   templateUrl: './user-page.component.html',
   styleUrl: './user-page.component.css'
 })
@@ -49,5 +53,9 @@ export class UserPageComponent implements OnInit {
       else
         this.newUser();
     });
+  }
+
+  collection(user: User) {
+    //
   }
 }
