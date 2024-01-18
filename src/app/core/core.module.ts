@@ -48,7 +48,7 @@ import { authInterceptor } from './interceptors/auth.interceptor';
     UserService,
     ProductService,
     AuthService,
-    provideHttpClient(withInterceptors([authInterceptor])), //([authInterceptor])
+    provideHttpClient(withInterceptors([authInterceptor]))
   ]
 })
 export class CoreModule {
