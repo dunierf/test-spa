@@ -14,7 +14,7 @@ export class LayoutComponent {
   }
 
   onRouterOutletActive() {
-    this.showSideBar = false;
+    setTimeout( () => { this.showSideBar = false; }, 500);
   }
 
 }

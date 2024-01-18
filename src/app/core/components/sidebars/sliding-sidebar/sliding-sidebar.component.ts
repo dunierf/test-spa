@@ -1,51 +1,47 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { animate, state, style, transition, trigger } from '@angular/animations';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+
+// Animation
+import { ShowHideAnimation } from "./mobile-tablet-sidebar.animation";
 
 @Component({
   selector: 'app-sliding-sidebar',
   templateUrl: './sliding-sidebar.component.html',
   styleUrl: './sliding-sidebar.component.css',
-  animations: [
-    trigger('showHide', [
-      state('show', style({
-        transform: 'translateX(0)'
-      })),
-      state('hidden', style({
-        transform: 'translateX(-100%)'
-      })),
-      state('initial', style({
-        transform: 'translateX(-100%)'
-      })),
-      transition('show => hidden', [
-        animate('0.4s ease-in')
-      ]),
-      transition('hide => show', [
-        animate('0.4s ease-out')
-      ]),
-      transition('initial => show', [
-        animate('0.4s ease-out')
-      ])
-    ])
-  ]
+  animations: [ShowHideAnimation]
 })
-export class SlidingSidebarComponent implements OnInit {
+export class SlidingSidebarComponent implements OnChanges {
 
   @Input() showSideBar: boolean = false;
+
+  @Input() show: boolean = false;
 
   @Output() showSideBarChange = new EventEmitter<boolean>();
 
   showHide: string = 'initial';
 
-  hideSidebar() {
+  sideBarAnimationDone() {
+    if (this.showHide == 'hidden') {
+      this.showSideBarChange.emit(false);
+      this.show = false;
+    }
+  }
+
+  showWithAnimation() {
+    this.showHide = 'show';
+  }
+
+  hideWithAnimation() {
     this.showHide = 'hidden';
   }
 
-  sideBarAnimationDone() {
-    if (this.showHide == 'hidden')
-      setTimeout( () => { this.showSideBarChange.emit(false); }, 10);
-  }
+  ngOnChanges(changes: SimpleChanges): void {
+    const showSideBar = changes['showSideBar'].currentValue;
 
-  ngOnInit(): void {
-    setTimeout( () => { this.showHide = 'show'; }, 20);
+    if (showSideBar != this.show) {
+      if (showSideBar && (this.showHide != 'show')) {
+        this.show = true;
+        setTimeout( () => { this.showWithAnimation(); }, 160);
+      }
+    }
   }
 }
