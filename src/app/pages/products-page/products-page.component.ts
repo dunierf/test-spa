@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 // Models
 import { Product } from './../../core/models/product/product.model';
@@ -8,6 +9,7 @@ import { ProductService } from './../../core/services/product/product.service';
 
 // Components
 import { DataGridComponent } from '../../components/data-grid/data-grid.component';
+
 
 @Component({
   selector: 'app-products-page',
@@ -20,7 +22,7 @@ export class ProductsPageComponent implements OnInit {
 
   items: Product[] = [];
 
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService, private router: Router) {
 
   }
 
@@ -48,7 +50,7 @@ export class ProductsPageComponent implements OnInit {
   }
 
   edit(id: number) {
-    //
+    this.router.navigate(['product', id.toString()]);
   }
 
 }
