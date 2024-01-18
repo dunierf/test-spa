@@ -28,17 +28,17 @@ export class ProductService {
     return this.http.get<Product>(url);
   }
 
-  post(user: Product) : Observable<Product> {
+  post(product: Product) : Observable<Product> {
     const url = environment.apiUrl + 'products';
-    return this.http.post<Product>(url, user);
+    return this.http.post<Product>(url, product);
   }
 
-  put(user: Product) : Observable<Product> {
-    const url = environment.apiUrl + 'products';
-    return this.http.put<Product>(url, user);
+  put(product: Product) : Observable<Product> {
+    const url = environment.apiUrl + 'products/' + product.id;
+    return this.http.put<Product>(url, product);
   }
 
-  delete(id:number) : Observable<null> {
+  delete(id: number) : Observable<null> {
     const url = environment.apiUrl + 'products/' + id.toString();
     return this.http.delete<null>(url);
   }
