@@ -9,4 +9,7 @@
       </div>
   </div>
 </div>
-<app-sliding-sidebar [(showSideBar)]="showSideBar"></app-sliding-sidebar>
+
+@if (showSideBar) {
+  <app-sliding-sidebar [(showSideBar)]="showSideBar"></app-sliding-sidebar>
+}
