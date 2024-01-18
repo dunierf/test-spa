@@ -1,1 +1,5 @@
-<p>login-page works!</p>
+<div class="d-flex align-items-center justify-content-center w-100 vh-100">
+  <div>
+    <app-login (onAuthenticationSucceeded)="onAuthenticationSucceeded($event)" (onAuthenticationFailed)="onAuthenticationFailed($event)"></app-login>
+  </div>
+</div>

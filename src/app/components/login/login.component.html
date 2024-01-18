@@ -1,0 +1,17 @@
+<form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+  <div class="login">
+    <div class="mb-4">
+      <label for="email" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email" required>
+    </div>
+    <div class="mb-4">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password" required minlength="8">
+    </div>
+    <div class="mb-4">
+      <button type="submit" class="btn btn-primary" [disabled]="disabled || loginForm.form.invalid">
+        Login
+      </button>
+    </div>
+  </div>
+</form>
