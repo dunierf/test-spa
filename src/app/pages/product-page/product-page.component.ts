@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 // Models
 import { Product } from './../../core/models/product/product.model';
@@ -7,11 +7,16 @@ import { Product } from './../../core/models/product/product.model';
 // Services
 import { ProductService } from './../../core/services/product/product.service';
 
+// Components
+import { CardComponent } from '../../components/card/card.component';
+import { ProductFormComponent } from '../../components/forms/product-form/product-form.component';
+
+
 
 @Component({
   selector: 'app-product-page',
   standalone: true,
-  imports: [],
+  imports: [ProductFormComponent, CardComponent],
   templateUrl: './product-page.component.html',
   styleUrl: './product-page.component.css'
 })
@@ -19,7 +24,7 @@ export class ProductPageComponent implements OnInit {
 
   product: Product | undefined = undefined;
 
-  constructor(private productService: ProductService, private route: ActivatedRoute) {
+  constructor(private productService: ProductService, private route: ActivatedRoute, private router: Router) {
 
   }
 
@@ -50,6 +55,10 @@ export class ProductPageComponent implements OnInit {
       else
         this.newProduct();
     });
+  }
+
+  collection(product: Product) {
+    this.router.navigate(['products']);
   }
 
 }
