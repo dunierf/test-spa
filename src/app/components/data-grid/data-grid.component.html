@@ -24,7 +24,7 @@
           </div>
           <div>
             @if (first && allowEdit) {
-              <button class="edit" title="Edit this entry">
+              <button class="edit" title="Edit this entry" (click)="edit(item.id)">
                 {{ item[column] }}
               </button>
             } @else {
