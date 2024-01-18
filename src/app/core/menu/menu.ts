@@ -41,7 +41,7 @@ export const menu: Menu = {
                     icon: 'card-heading'
                 },
                 {
-                    label: 'Create a product',
+                    label: 'New product',
                     link: 'product',
                     icon: 'newspaper'
                 }
