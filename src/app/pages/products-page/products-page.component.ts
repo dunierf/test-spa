@@ -35,4 +35,20 @@ export class ProductsPageComponent implements OnInit {
     });
   }
 
+  delete(id: number) {
+    this.productService.delete(id).subscribe({
+      next: () => {
+        const index = this.items.findIndex(item => item.id == id);
+        this.items.splice(index, 1);
+      },
+      error: err => {
+
+      }
+    });
+  }
+
+  edit(id: number) {
+    //
+  }
+
 }
