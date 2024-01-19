@@ -1,7 +1,7 @@
 <div class="d-flex justify-content-center">
   <div class="form-wrapper">
     <app-card [title]="'User'">
-      <app-user-form [user]="user" (onCreate)="collection($event)" (onUpdate)="collection($event)"></app-user-form>
+      <app-user-form [user]="user" (onCreate)="toCollection($event)" (onUpdate)="toCollection($event)"></app-user-form>
     </app-card>
   </div>
 </div>
