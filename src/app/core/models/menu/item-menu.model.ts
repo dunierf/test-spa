@@ -3,4 +3,5 @@ export interface ItemMenu {
   icon?: string;
   link?: string;
   items?: ItemMenu[];
+  admin?: boolean;
 }
