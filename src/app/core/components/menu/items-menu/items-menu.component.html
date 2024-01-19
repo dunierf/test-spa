@@ -2,9 +2,15 @@
   @for (item of items; track $index) {
     <li class="w-100 d-flex flex-column" [ngClass]="{ 'mb-4': item.items?.length, 'mt-2 ms-3': !item.items }">
       @if (!item.items) {
-        <a [routerLink]="item.link">
-          {{ item.label }}
-        </a>
+        @if (item.label == 'Logout') {
+          <a (click)="logout()" [routerLink]="item.link">
+            {{ item.label }}
+          </a>
+        } @else {
+          <a [routerLink]="item.link">
+            {{ item.label }}
+          </a>
+        }
       } @else {
         <span class="fw-bold">
           {{ item.label }}

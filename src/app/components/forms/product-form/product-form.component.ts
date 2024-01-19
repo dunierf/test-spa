@@ -30,6 +30,7 @@ export class ProductFormComponent {
   }
 
   onSubmit() {
+    console.log(this.product);
     if (this.product !== undefined) {
       if (this.product?.id) {
         this.productService.put(this.product).subscribe({
