@@ -29,7 +29,7 @@ export class AuthService {
     sessionStorage.setItem('token', token);
   }
 
-  removeToken(token: string) {
+  removeToken() {
     sessionStorage.removeItem('token');
   }
 
