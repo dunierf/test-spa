@@ -9,30 +9,32 @@
         <label for="email" class="form-label">Email:*</label>
         <input type="email" class="form-control" id="email" name="email" [(ngModel)]="user.email" required>
       </div>
-      <div class="mb-4">
-        <label for="password" class="form-label">Password: @if (!user.id) { * }</label>
-        <input type="password" class="form-control" id="password" name="password" [(ngModel)]="user.password" [required]="!user.id">
-      </div>
 
+      <!-- Password -->
+      @if (!user.id) {
+        <div class="mb-4">
+          <label for="password" class="form-label">Password: @if (!user.id) { * }</label>
+          <input type="password" class="form-control" id="password" name="password" [(ngModel)]="user.password" required minlength="8">
+        </div>
+      }
+
+      <!-- Roles -->
       <div class="form-group mb-4">
         <label for="name">Roles*</label>
-        @for (role of roles; track $index) {
+        @for (role of roles; track role; let index = $index) {
           <div class="mt-3 form-check">
-            <input type="checkbox" name="{{ role.name }}" value="{{ role.id }}" class="form-check-input">
-            <label class="form-check-label ms-1" for="exampleCheck1">{{ role.name }}</label>
+            <input type="checkbox"
+              class="form-check-input"
+              [id]="'role' + role.id"
+              (change)="toggleRole(role, $event.target)"
+              [checked]="checkedRole(role)">
+            <label class="form-check-label ms-1" [for]="'role' + role.id">{{ role.name }}</label>
           </div>
         }
       </div>
-        <!--
-        @for (role of roles; track $index) {
-          <div class="mt-3 form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">{{ role.name }}</label>
-          </div>
-        }-->
 
       <div class="mb-4 text-center">
-        <button type="submit" class="btn btn-primary" [disabled]="disabled || productForm.form.invalid">
+        <button type="submit" class="btn btn-primary" [disabled]="disabled || (!user.roles?.length) || productForm.form.invalid">
           @if (user.id) {
             Update
           } @else {

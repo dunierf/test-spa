@@ -43,7 +43,6 @@ export class ProductFormComponent {
       } else {
         this.productService.post(this.product).subscribe({
           next: (product: Product) => {
-            console.log(product);
             this.onCreate.emit(product);
           },
           error: err => {

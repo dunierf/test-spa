@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 // Models
 import { User } from './../../core/models/user/user.model';
@@ -23,7 +23,7 @@ export class UserPageComponent implements OnInit {
 
   user: User | undefined = undefined;
 
-  constructor(private userService: UserService, private route: ActivatedRoute) {
+  constructor(private userService: UserService, private route: ActivatedRoute, private router: Router) {
 
   }
 
@@ -55,7 +55,7 @@ export class UserPageComponent implements OnInit {
     });
   }
 
-  collection(user: User) {
-    //
+  toCollection(user: User) {
+    this.router.navigate(['users']);
   }
 }

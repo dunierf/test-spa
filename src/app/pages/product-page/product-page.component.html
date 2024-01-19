@@ -1,7 +1,7 @@
 <div class="d-flex justify-content-center">
   <div class="form-wrapper">
     <app-card [title]="'Product'">
-      <app-product-form [product]="product" (onCreate)="collection($event)" (onUpdate)="collection($event)"></app-product-form>
+      <app-product-form [product]="product" (onCreate)="toCollection($event)" (onUpdate)="toCollection($event)"></app-product-form>
     </app-card>
   </div>
 </div>
