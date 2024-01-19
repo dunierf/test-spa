@@ -24,12 +24,16 @@ export class ItemsMenuComponent {
   logout() {
     this.authService.logout().subscribe({
       next: () => {
-        this.authService.removeToken();
+        this.authService.removeData();
         this.router.navigate(['/']);
       },
       error: err => {
 
       }
     })
+  }
+
+  isAdmin() {
+    return this.authService.isAdmin();
   }
 }
