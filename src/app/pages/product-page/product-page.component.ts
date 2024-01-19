@@ -32,9 +32,9 @@ export class ProductPageComponent implements OnInit {
     this.product = {
       id: undefined,
       name: '',
-      price: 0,
-      image: '',
-      description: ''
+      price: 1,
+      image: undefined,
+      description: undefined
     };
   }
 

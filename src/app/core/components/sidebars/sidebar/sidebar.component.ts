@@ -9,4 +9,8 @@ export class SidebarComponent {
 
   @Input() fixed: boolean = false;
 
+  logout() {
+    //
+  }
+
 }
