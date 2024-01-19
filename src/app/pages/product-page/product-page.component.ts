@@ -57,7 +57,7 @@ export class ProductPageComponent implements OnInit {
     });
   }
 
-  collection(product: Product) {
+  toCollection(product: Product) {
     this.router.navigate(['products']);
   }
 

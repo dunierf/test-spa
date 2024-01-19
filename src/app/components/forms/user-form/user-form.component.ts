@@ -43,28 +43,36 @@ export class UserFormComponent implements OnInit {
     })
   }
 
+  toggleRole(role: Role, target: any) {
+    if (target.checked)
+      this.user?.roles?.push(role);
+    else
+      this.user?.roles?.splice(this.user?.roles?.findIndex( r => r.id == role.id), 1);
+  }
+
+  checkedRole(role: Role) {
+    return (this.user?.roles?.findIndex( r => r.id == role.id) !== -1);
+  }
+
   onSubmit() {
-    /*if (this.product !== undefined) {
-      if (this.product?.id) {
-        this.productService.put(this.product).subscribe({
-          next: (product: Product) => {
-            this.onUpdate.emit(product);
-          },
-          error: err => {
-            //
-          }
-        });
-      } else {
-        this.productService.post(this.product).subscribe({
-          next: (product: Product) => {
-            console.log(product);
-            this.onCreate.emit(product);
-          },
-          error: err => {
-            //
-          }
-        });
-      }
-    }*/
+    if (this.user?.id) {
+      this.userService.put(this.user).subscribe({
+        next: (user: User) => {
+          this.onUpdate.emit(user);
+        },
+        error: err => {
+          //
+        }
+      });
+    } else if (this.user) {
+      this.userService.post(this.user).subscribe({
+        next: (user: User) => {
+          this.onCreate.emit(user);
+        },
+        error: err => {
+          //
+        }
+      });
+    }
   }
 }

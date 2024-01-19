@@ -31,7 +31,7 @@ export class UserService {
   }
 
   put(user: User) : Observable<User> {
-    const url = environment.apiUrl + 'users';
+    const url = environment.apiUrl + 'users/' + user.id?.toString();
     return this.http.put<User>(url, user);
   }
 
