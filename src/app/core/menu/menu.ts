@@ -19,6 +19,7 @@ export const menu: Menu = {
         },
         {
             label: 'Users',
+            admin: true,
             items: [
                 {
                     label: 'List of users',

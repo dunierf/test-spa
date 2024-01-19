@@ -7,6 +7,8 @@ import { environment } from '../../../../environments/environment';
 
 // Model
 import { User } from './../../models/user/user.model';
+import { Role } from '../../models/user/role.model';
+
 
 @Injectable()
 export class AuthService {
@@ -25,12 +27,18 @@ export class AuthService {
     return this.http.delete(url);
   }
 
+  roles() : Observable<{ data: Role [] }> {
+    const url = environment.apiUrl + 'auth/roles';
+    return this.http.get<{ data: Role [] }>(url);
+  }
+
   saveToken(token: string) {
     sessionStorage.setItem('token', token);
   }
 
-  removeToken() {
+  removeData() {
     sessionStorage.removeItem('token');
+    sessionStorage.removeItem('admin');
   }
 
   getToken() : string | null {
@@ -39,5 +47,13 @@ export class AuthService {
 
   isAuthed() : boolean {
     return (this.getToken() != null);
+  }
+
+  isAdmin() : boolean {
+    return (sessionStorage.getItem('admin') == 'true');
+  }
+
+  setAdmin(admin: boolean) {
+    sessionStorage.setItem('admin', admin.toString());
   }
 }
